@@ -1,17 +1,18 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const routes = require('./routes/index.js');
+import express from 'express';
+import cookieParser from 'cookie-parser';
+//import { urlencoded, json } from 'body-parser';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import router from './routes/index.route.mjs';
+import './db.mjs';
 
-require('./db.js');
-
+const { urlencoded, json } =bodyParser
 const server = express();
 
-server.name = 'API';
+server.set('name', 'server');
 
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(bodyParser.json({ limit: '50mb' }));
+server.use(urlencoded({ extended: true, limit: '50mb' }));
+server.use(json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
@@ -22,7 +23,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/', routes);
+server.use('/', router);
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
@@ -32,4 +33,4 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   res.status(status).send(message);
 });
 
-module.exports = server;
+export default server;

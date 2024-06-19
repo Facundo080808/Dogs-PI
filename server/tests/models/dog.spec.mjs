@@ -1,5 +1,5 @@
-const { Dog, conn } = require('../../src/db.js');
-const { expect } = require('chai');
+import { Dog, conn } from '../../src/db.mjs';
+import { expect } from 'chai';
 
 describe('Dog model', () => {
   before(() => conn.authenticate()

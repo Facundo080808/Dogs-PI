@@ -17,12 +17,19 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+
+import server from './src/app.mjs';
+//import { conn } from './src/db.mjs';
+import  con  from './src/db.mjs';
+import { temperamentsToDB } from './src/handlers/temperaments.handler.mjs';
+
+const {conn} = con
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(3123, () => {
+    (temperamentsToDB)()
+    console.log("temperaments succes");
+    console.log('server listening at http://localhost:3123/'); // eslint-disable-line no-console
   });
 });
