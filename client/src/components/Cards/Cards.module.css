@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.card{
+    position: relative;
+    width: 20em;
+    height: 15em;
+    transform-style: preserve-3d;
+    transition: 1s;
+    border-radius: 20px;
+    margin: 1em;
+}
+.front{
+    display: flex;
+    justify-content: center;
+    align-items:end ;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    transition:1s;
+    box-shadow: 0 0 10px 5px black;
+}
+.back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color:antiquewhite;
+    backface-visibility:hidden;
+    background: radial-gradient(rgb(25, 19, 99) ,rgb(25, 15, 158));
+    transform: perspective(600px) rotatey(180deg);
+    border-radius: 20px;
+    filter:brightness(1.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition:1s;
+}
+.card:hover .front {
+    transform: perspective(600px) rotatey(180deg);
+    scale: 1.1; 
+}
+.card:hover .back{
+    transform: perspective(600px) rotatey(360deg);
+    scale: 1.1;
+}
+.detail{
+    padding-top: 1em;
+    border-top: solid 1px whitesmoke;
+    color: black;
+}
+.front .name{
+    padding: 1em;
+    width: 100%;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    
+}
+.name{
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}

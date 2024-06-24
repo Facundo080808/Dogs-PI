@@ -1,0 +1,60 @@
+*{
+    padding:0;
+    border:0;
+    margin:0;
+}
+.main{
+    display:grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../../../dogs.jpg);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+.button{
+    font-size: 1.5em;
+    width: 5em;
+    height: auto;
+    border-radius: .2em;
+    margin: 1em;
+    transition: 150ms;
+    border: 3px solid transparent;
+}
+.button:hover{
+    cursor: pointer;
+    font-size: 2em;
+    transition: 150ms;
+    background-color: rgb(84, 140, 214);
+    border-color: rgba(23, 19, 255, .5);
+    box-shadow: 0 0 20px 10px rgba(23, 19, 255, .5);
+}
+.button:active{
+
+    scale: .9;
+    transition: 150ms;
+}
+.article {
+    display: grid;
+    place-items: center;
+    background-color: rgb(255, 255, 255,.2);
+    border-radius: 1em;
+}
+.h1{
+font-size: 2em;
+margin: 1em;
+}
+.h2{
+
+font-size: 1.5em;
+margin: 1em;
+}
+.ul{
+    display: flex;
+    flex-direction: column;
+    margin: .5em;
+}
+.li{
+    margin: 1em;
+}

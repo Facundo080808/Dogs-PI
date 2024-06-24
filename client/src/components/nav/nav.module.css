@@ -1,0 +1,78 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background:linear-gradient(rgb(163, 166, 172),rgb(167, 170, 175));
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+}
+.buttons{
+    width: auto;
+    font-size: 1em;
+    margin: 1em;
+    padding: 1em;
+    border-radius: .5em;
+    transition: 200ms;
+    border: 1px solid transparent;
+}
+.buttons:hover{
+    
+    cursor: pointer;
+    background-color: rgb(144, 177, 211);
+}
+.buttons:active{
+    transition: 100ms;
+    scale: .9;
+    border-color:  aqua ;
+    box-shadow: 0 0 20px 10px aqua;
+}
+/* nav.module.css */
+
+/* Estilos para la etiqueta 'label' que contiene el input y el botón */
+.searchContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 1em; /* Ajusta el margen derecho según tu preferencia */
+}
+
+/* Estilos para el input de búsqueda */
+.searchInput {
+    padding: 0.5em; /* Ajusta el padding según tu preferencia */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 0.5em; /* Bordes redondeados */
+    font-size: 1em; /* Tamaño de fuente */
+    transition: border-color 0.2s ease-in-out; /* Transición del borde */
+}
+
+.searchInput:focus {
+    outline: none; /* Quita el contorno de enfoque */
+    border-color: #555; /* Cambia el color del borde al enfocar */
+}
+
+
+.searchButton {
+    padding: 0.5em 1em; /* Ajusta el padding del botón según tu preferencia */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    border-radius: 0.5em; /* Bordes redondeados */
+    margin-left: 0.5em; /* Ajusta el margen izquierdo según tu preferencia */
+    cursor: pointer; /* Cambia el cursor a pointer */
+    transition: background-color 0.2s ease-in-out; /* Transición de color de fondo */
+}
+
+.searchButton:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+}
