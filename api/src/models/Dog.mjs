@@ -10,7 +10,7 @@ export default (sequelize) => {
     defaultValue: DataTypes.UUIDV4
     },
     img:{
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     name: {
       type: DataTypes.STRING,

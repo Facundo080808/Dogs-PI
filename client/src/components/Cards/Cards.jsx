@@ -10,19 +10,21 @@ function Cards(props) {
     const getTemperament = () => {
         if (props.dog.temperament) {
             return props.dog.temperament;
-        } else if (props.dog.temperaments && props.dog.temperaments.length > 0) {
-            return props.dog.temperaments[0].name + '...';
-        } else {
-            return 'Loading...';
+        }else if(props.dog.temperaments && props.dog.temperaments.length === 1){
+            return props.dog.temperaments[0].name;
         }
-    };
+         else if (props.dog.temperaments && props.dog.temperaments.length > 0) {
+            return props.dog.temperaments[0].name + '...';
+        } else{
+            return 'Loading...';
+        }}
     return (
         <article className={styles.card}>
             <article className={styles.front} style={background} >
                 <h1 className={styles.name}>{props.dog.name}</h1>
             </article>
             <article className={styles.back}>
-                <h2>{props.dog.weight.imperial || props.dog.weight}</h2>
+                <h2>{props.dog.weight.imperial || props.dog.weight} libras</h2>
                 <p>{getTemperament()}</p>
                 <Link to={`/home/:${props.dog.id}`}>
                 <h2 className={styles.detail}>Detalle</h2>

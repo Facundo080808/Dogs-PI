@@ -22,7 +22,10 @@ function Home() {
     }, [Dogs]);
     
     
-
+    const reestart = ()=>{
+        setCurrentPage(0);
+        setDogs([...Dogs].splice(0, itemsPorPage))
+    }
     const nextHandler = ()=>{
         const total = Dogs.length;
         const nextPage = currentPage + 1;
@@ -41,13 +44,13 @@ function Home() {
     
     return(
         <main className={styles.main}>
-            <Nav Filters={Filters} dogs={dogs} setDogs={setDogs}></Nav>
+            <Nav Filters={Filters} restart={reestart}></Nav>
             <section className={styles.section}>
             { dogs.length > 0 ? dogs.map((dog, index)=><Cards key={index} dog={dog}/>) : <h1>loading...</h1>}
             </section>
            {dogs.length > 0 &&<> <article className={styles.pagination}>
                 <button onClick={prevHandler} className={styles.button}>⬅️ Previous</button>
-                <button className={styles.refresh} onClick={()=>{setCurrentPage(0);setDogs([...Dogs].splice(0, itemsPorPage));}}>{currentPage + 1}</button>
+                <button className={styles.refresh} onClick={reestart}>{currentPage + 1}</button>
                 <button onClick={nextHandler} className={styles.button}>Next ➡️</button>
             </article>
             

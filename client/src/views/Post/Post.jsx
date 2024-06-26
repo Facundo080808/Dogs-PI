@@ -28,7 +28,6 @@ const [inputs , setInputs] = useState({
     lifespan:"",
     temp:[]
 })
-console.log(inputs);
 const [errors , setErrors] = useState({
     name:"Campo obligatorio",
     img:"Si no añades una imagen, se añadira una por defecto",
@@ -196,7 +195,7 @@ const handleSubmit = (e)=>{
                     {errors.img&&<span className={styles.errorMessage}>{errors.img}</span>}
                 </label>
                 <label className={styles.formlabel} htmlFor="">
-                    <h2>Peso en kilos :</h2>
+                    <h2>Peso en libras :</h2>
                     <input type="text" className={styles.forminput} name="peso" onChange={handleChangueInput}/>
                     {errors.weight&&<span className={styles.errorMessage}>{errors.weight}</span>}
                 </label>

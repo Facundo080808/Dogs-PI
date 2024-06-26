@@ -40,7 +40,6 @@ export function postDogAction(objeto) {return async(dispatch)=>{
                 body: JSON.stringify(objeto)    
         }
         const post = await(await fetch("http://localhost:4321/dogs" , response)).json();
-        console.log("creo que funciono"+post);
         return dispatch(getDogs(post))
     } catch (error) {
         console.error(error.message);
@@ -63,7 +62,6 @@ export function DogsZAaction() {
         try {
             const dogsInfo = await (await fetch("http://localhost:4321/dogs")).json();
             const sorted = dogsInfo.sort((a,b)=>b.name.localeCompare(a.name));
-            console.log("funciona");
             return dispatch(getDogs(sorted));
         } catch (error) {
             console.error(error.message);
@@ -109,8 +107,28 @@ export function maxWeight() {
         } catch (error) {
             console.error(error.message);
         }
+}}
+export function DogTemperamentAction(string) {
+        return async(dispatch)=>{
+            try {
+                const dogsInfo = await (await fetch("http://localhost:4321/dogs")).json();
+                const filteredDogs = dogsInfo.filter((element) => {
+                    if (element.temperament) {
+                        return element.temperament.includes(string);
+                    } else if (element.temperaments) {
+                        return element.temperaments.some(temp => temp.name.includes(string));
+                    }
+                    return false;
+                });
+                
+                console.log(filteredDogs);
+                dispatch(getDogs(filteredDogs));
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
 }
-}
+
 
 
 

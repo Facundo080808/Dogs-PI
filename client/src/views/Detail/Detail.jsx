@@ -5,14 +5,15 @@ import { Nav } from "../../components/nav/nav";
 
 function Detail() {
     const { id } = useParams();
-    console.log(id);
     const [dog, setDog] = useState(null);
-
+    const limpiarAños = (string)=>{
+        const años = string.split("years")
+        return años[0];
+    }
     async function Fetch() {
         try {
             const cleanedId = id.replace(':', '');
             const response = await (await fetch(`http://localhost:4321/dogs/${cleanedId}`)).json();
-            console.log(response);
             return setDog(response);
         } catch (error) {
             console.error(error.message);
@@ -22,8 +23,6 @@ function Detail() {
     useEffect(() => {
         Fetch();
     }, []);
-    
-    console.log(dog);
     return (
         <header>
                 <Nav></Nav>
@@ -38,8 +37,8 @@ function Detail() {
                     <article className={styles.article}>
                         <h1 className={styles.heading1}>Nombre : {dog.name}</h1>
                         <h2 className={styles.heading2}>Altura : {dog.height.metric || dog.height}</h2>
-                        <h2 className={styles.heading2}>Peso en kilos : {dog.weight.metric || dog.weight}</h2>
-                        <h2 className={styles.heading2}>Esperanza de vida : {dog.life_span || dog.lifespan + " años"}</h2>
+                        <h2 className={styles.heading2}>Peso en Libras : {dog.weight.metric || dog.weight}</h2>
+                        <h2 className={styles.heading2}>Esperanza de vida : {dog.life_span  || dog.lifespan + " años"}</h2>
                         {dog.temperament ? 
                             
                             <p className={styles.paragraph}><h3>Temperaments: </h3>{dog.temperament}</p> : 
