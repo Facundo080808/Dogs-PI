@@ -53,7 +53,10 @@ function Home() {
                 <button className={styles.refresh} onClick={reestart}>{currentPage + 1}</button>
                 <button onClick={nextHandler} className={styles.button}>Next ➡️</button>
             </article>
-            
+                    <button className={styles.button} onClick={()=>{
+                        console.log(dogs[0]);
+                        setDogs(Dogs[0])
+                    }}>boton</button>
             </>}
         </main>
     )
